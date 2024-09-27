@@ -76,6 +76,8 @@ void GradientStopsEdit::mousePressEvent(QMouseEvent* event)
   // create new stop on left button click
   if (stop_index == -1 && event->button() == Qt::LeftButton) {
     addStop(event->position().x() / width());
+    m_stop_index = findStopIndex(event->position().x());
+    Q_ASSERT(m_stop_index != -1);
     update();
   }
 
