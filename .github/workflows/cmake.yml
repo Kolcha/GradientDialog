@@ -14,7 +14,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        qt: ["6.6"]
+        qt: ["6.8"]
+        include:
+          - os: ubuntu-latest
+            arch: 'linux_gcc_64'
+          - os: windows-latest
+            arch: 'win64_msvc2022_64'
+          - os: macos-latest
+            arch: 'clang_64'
 
     runs-on: ${{ matrix.os }}
     name: "${{ matrix.os }}-qt-${{ matrix.qt }}"
@@ -26,6 +33,7 @@ jobs:
       uses: jurplel/install-qt-action@v4
       with:
         version: ${{ matrix.qt }}
+        arch: ${{ matrix.arch }}
         archives: icu qtbase
 
     - name: Configure CMake
