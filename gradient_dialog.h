@@ -16,6 +16,9 @@ class GradientDialog : public QDialog
 {
   Q_OBJECT
 
+  Q_PROPERTY(QGradient gradient READ gradient WRITE setGradient
+             NOTIFY gradientChanged)
+
 public:
   static QGradient getGradient(bool* ok,
                                const QGradient& gradient = QLinearGradient(),

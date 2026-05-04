@@ -12,6 +12,9 @@ class GradientEdit : public QWidget
 {
   Q_OBJECT
 
+  Q_PROPERTY(QGradient gradient READ gradient WRITE setGradient
+             NOTIFY gradientChanged)
+
 public:
   explicit GradientEdit(QWidget* parent = nullptr)
     : GradientEdit(QLinearGradient(), parent) {}

@@ -12,6 +12,9 @@ class GradientStopsEdit : public QWidget
 {
   Q_OBJECT
 
+  Q_PROPERTY(QGradientStops stops READ stops WRITE setStops
+             NOTIFY stopsChanged)
+
 public:
   explicit GradientStopsEdit(QWidget* parent = nullptr)
     : GradientStopsEdit(QGradientStops(), parent) {}
